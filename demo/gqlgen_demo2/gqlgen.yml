@@ -1,0 +1,14 @@
+schema:
+  - schema.graphql
+exec:
+  filename: graph/gemerated.go
+model:
+  filename: model/generated.go
+resolver:
+  filename: resolver.go
+
+models:
+  Todo:
+    model: graphql_demo/demo/gqlgen_demo2/model.Todo
+  User:
+    model: graphql_demo/demo/gqlgen_demo2/model.User
