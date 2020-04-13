@@ -2,19 +2,27 @@
 
 package model
 
-type NewTodo struct {
-	Text   string `json:"text"`
-	UserID string `json:"userId"`
+type PageInfo struct {
+	HasNexPage      bool   `json:"hasNexPage"`
+	HasPreviousPage bool   `json:"hasPreviousPage"`
+	StartCursor     string `json:"startCursor"`
+	EndCurosor      string `json:"endCurosor"`
 }
 
-type Todo struct {
-	ID   string `json:"id"`
-	Text string `json:"text"`
-	Done bool   `json:"done"`
-	User *User  `json:"user"`
+type People struct {
+	ID     string  `json:"id"`
+	Name   string  `json:"name"`
+	Gender *string `json:"gender"`
+	Height *string `json:"height"`
 }
 
-type User struct {
-	ID   string `json:"id"`
-	Name string `json:"name"`
+type PeopleConnection struct {
+	Edges      []*PeopleEdge `json:"edges"`
+	PageInfo   *PageInfo     `json:"pageInfo"`
+	TotalCount int           `json:"totalCount"`
+}
+
+type PeopleEdge struct {
+	Cursor string  `json:"cursor"`
+	Node   *People `json:"node"`
 }
